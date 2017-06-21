@@ -46,6 +46,8 @@ def setup_swagger(app: web.Application,
                   contact: str = "",
                   swagger_home_decor: FunctionType = None,
                   swagger_def_decor: FunctionType = None,
+                  top_level_str: str = "",
+                  top_level_file: str = "",
                   swagger_info: dict = None):
     _swagger_url = ("/{}".format(swagger_url)
                     if not swagger_url.startswith("/")
@@ -60,7 +62,8 @@ def setup_swagger(app: web.Application,
         else:
             swagger_info = generate_doc_from_each_end_point(
                 app, api_base_url=api_base_url, description=description,
-                api_version=api_version, title=title, contact=contact
+                api_version=api_version, title=title, contact=contact,
+                top_level_file=top_level_file, top_level_str=top_level_str
             )
     else:
         swagger_info = json.dumps(swagger_info)

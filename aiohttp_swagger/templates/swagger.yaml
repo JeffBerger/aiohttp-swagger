@@ -9,6 +9,7 @@ info:
     name: {{ contact }}
   {% endif %}
 basePath: {{ base_path }}
+{{ top_level }}
 schemes:
   - http
   - https
